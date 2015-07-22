@@ -12,40 +12,59 @@ using System.Text;
              new Dictionary<string, IMyContractCallBack>();
         private static object locker = new object();
         public string s = string.Empty;
+        public string errorMsg = string.Empty;
       
         public void NormalFunction()
         {
             IMyContractCallBack callback = OperationContext.Current.GetCallbackChannel<IMyContractCallBack>();
-            callback.CallBackFunction("Identity");
+            callback.CallBackFunction("Identity",null,null);
         }
         public void InsertData(string macineKey)
         {
             IMyContractCallBack callback = OperationContext.Current.GetCallbackChannel<IMyContractCallBack>();
                using (DuplexApp_dbEntities entities = new DuplexApp_dbEntities())
                {
-                    EndpointAddress clientAddress = OperationContext.Current.Channel.RemoteAddress;
-                    lock (locker)
+                    var data = entities.MachineDetails.Where(m => m.MachineKey == macineKey).FirstOrDefault();
+                    if (data != null)
                     {
-                        //remove the old client
-                        if (clients.Keys.Contains(clientAddress.Uri.ToString()))
-                            clients.Remove(clientAddress.Uri.ToString());
-                        clients.Add(clientAddress.Uri.ToString(), callback);
+                        string clientAddress = data.ClientAddress;
+                        lock (locker)
+                        {
+                            //remove the old client
+                            if (clients.Keys.Contains(clientAddress.ToString()))
+                                clients.Remove(clientAddress.ToString());
+                            clients.Add(clientAddress.ToString(), callback);
+                        }
+ 
                     }
-                   
-                    MachineDetail tbl = new MachineDetail();
-                    tbl.MachineKey = macineKey;
-                    tbl.CreatedDate=System.DateTime.Now;
-                    tbl.ClientAddress = clientAddress.Uri.ToString();
-                    entities.MachineDetails.Add(tbl);
-                    entities.SaveChanges();
+                    else
+                    {
+
+                        string clientAddress = Guid.NewGuid().ToString();
+                        //EndpointAddress clientAddress = OperationContext.Current.Channel.RemoteAddress;
+                        lock (locker)
+                        {
+                            //remove the old client
+                            if (clients.Keys.Contains(clientAddress.ToString()))
+                                clients.Remove(clientAddress.ToString());
+                            clients.Add(clientAddress.ToString(), callback);
+                        }
+
+                        MachineDetail tbl = new MachineDetail();
+                        tbl.MachineKey = macineKey;
+                        tbl.CreatedDate = System.DateTime.Now;
+                        tbl.ClientAddress = clientAddress.ToString();
+                        entities.MachineDetails.Add(tbl);
+                        entities.SaveChanges();
+                    }
                 }
           
         }
-        public void UpdateData(string FunctionList,string machineKey)
+        public void UpdateData(string FunctionList,string ClientAddress)
         {
              using (DuplexApp_dbEntities entities = new DuplexApp_dbEntities())
             {
-                var data = entities.MachineDetails.Where(m => m.MachineKey ==machineKey).FirstOrDefault();
+                var data = entities.MachineDetails.Where(m => m.ClientAddress == ClientAddress).FirstOrDefault();
                 if (data != null)
                 {
                     data.AvailableFunction = FunctionList;
@@ -54,7 +73,7 @@ using System.Text;
             }
 
         }
-    public  void NotifyServer(string clientAddress)
+        public void NotifyServer(string clientAddress, string functionType, string functionName)
         {
             lock (locker)
             {
@@ -65,12 +84,23 @@ using System.Text;
                     {
                         try
                         {
-                            client.Value.CallBackFunction("GetFunction");
-                            System.Threading.Thread.Sleep(5000);
+                            if (functionType == "FindFunction")
+                            {
+                                client.Value.CallBackFunction("GetFunction", clientAddress,null);
+
+                                System.Threading.Thread.Sleep(5000);
+                            }
+                            else if (functionType == "ExecuteFunction")
+                            {
+                                client.Value.CallBackFunction("ExecuteFunction", clientAddress,functionName);
+
+                                System.Threading.Thread.Sleep(5000);
+                            }
                         
                         }
                         catch (Exception ex)
                         {
+                            errorMsg = ex.Message.ToString();
                             inactiveClients.Add(client.Key);
                         }
                     }

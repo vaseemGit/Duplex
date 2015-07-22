@@ -17,15 +17,15 @@ using System.Text;
         void InsertData(string macineKey);
 
         [OperationContract(IsOneWay = true)]
-        void NotifyServer(string clientAddress);
+        void NotifyServer(string clientAddress, string functionType, string functionName);
 
        [OperationContract(IsOneWay = true)]
-        void UpdateData(string functionList, string machineKey);
+        void UpdateData(string functionList, string ClientAddress);
     }
     public interface IMyContractCallBack
     {
         [OperationContract(IsOneWay = true)]
-        void CallBackFunction(string str);
+        void CallBackFunction(string functionType,string clientAddress,string functionName);
     }
 
  

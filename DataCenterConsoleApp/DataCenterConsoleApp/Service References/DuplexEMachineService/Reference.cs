@@ -28,23 +28,23 @@ namespace DataCenterConsoleApp.DuplexEMachineService {
         System.Threading.Tasks.Task InsertDataAsync(string macineKey);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IService/NotifyServer")]
-        void NotifyServer(string clientAddress);
+        void NotifyServer(string clientAddress, string functionType, string functionName);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IService/NotifyServer")]
-        System.Threading.Tasks.Task NotifyServerAsync(string clientAddress);
+        System.Threading.Tasks.Task NotifyServerAsync(string clientAddress, string functionType, string functionName);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IService/UpdateData")]
-        void UpdateData(string functionList, string machineKey);
+        void UpdateData(string functionList, string ClientAddress);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IService/UpdateData")]
-        System.Threading.Tasks.Task UpdateDataAsync(string functionList, string machineKey);
+        System.Threading.Tasks.Task UpdateDataAsync(string functionList, string ClientAddress);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IServiceCallback {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IService/CallBackFunction")]
-        void CallBackFunction(string str);
+        void CallBackFunction(string functionType, string clientAddress, string functionName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -91,20 +91,20 @@ namespace DataCenterConsoleApp.DuplexEMachineService {
             return base.Channel.InsertDataAsync(macineKey);
         }
         
-        public void NotifyServer(string clientAddress) {
-            base.Channel.NotifyServer(clientAddress);
+        public void NotifyServer(string clientAddress, string functionType, string functionName) {
+            base.Channel.NotifyServer(clientAddress, functionType, functionName);
         }
         
-        public System.Threading.Tasks.Task NotifyServerAsync(string clientAddress) {
-            return base.Channel.NotifyServerAsync(clientAddress);
+        public System.Threading.Tasks.Task NotifyServerAsync(string clientAddress, string functionType, string functionName) {
+            return base.Channel.NotifyServerAsync(clientAddress, functionType, functionName);
         }
         
-        public void UpdateData(string functionList, string machineKey) {
-            base.Channel.UpdateData(functionList, machineKey);
+        public void UpdateData(string functionList, string ClientAddress) {
+            base.Channel.UpdateData(functionList, ClientAddress);
         }
         
-        public System.Threading.Tasks.Task UpdateDataAsync(string functionList, string machineKey) {
-            return base.Channel.UpdateDataAsync(functionList, machineKey);
+        public System.Threading.Tasks.Task UpdateDataAsync(string functionList, string ClientAddress) {
+            return base.Channel.UpdateDataAsync(functionList, ClientAddress);
         }
     }
 }

@@ -54,37 +54,23 @@ public partial class _Default : System.Web.UI.Page
        {
            if(e.CommandName=="MachineName")
            {
-               LinkButton lnkButton = (LinkButton)e.CommandSource;
+               GridViewRow row = (GridViewRow)((LinkButton)e.CommandSource).NamingContainer;
+               Label clientAddressLabel = (Label)machineListGridView.Rows[row.RowIndex].FindControl("clientAddressLabel");
+               //LinkButton lnkButton = (LinkButton)e.CommandSource;
                using (DuplexApp_dbEntities entities = new DuplexApp_dbEntities())
                {
-                   var data = entities.MachineDetails.Where(m => m.MachineKey == lnkButton.Text.Trim()).FirstOrDefault();
+                   var data = entities.MachineDetails.Where(m => m.ClientAddress == clientAddressLabel.Text.Trim()).FirstOrDefault();
                    if (data != null)
                    {
                        data.AvailableFunction = null;
                        entities.SaveChanges();
                    }
                }
-               GridViewRow row = (GridViewRow)((LinkButton)e.CommandSource).NamingContainer;
-               Label clientAddressLabel = (Label)machineListGridView.Rows[row.RowIndex].FindControl("clientAddressLabel");
+               
                Service vs = new Service();
-               vs.NotifyServer(clientAddressLabel.Text);
-                   
-               using (DuplexApp_dbEntities entities = new DuplexApp_dbEntities())
-               {
-                   var data = entities.MachineDetails.Where(m => m.MachineKey == lnkButton.Text.Trim()).FirstOrDefault();
-                   if (data != null)
-                   {
-                       functionListLabel.Text =Convert.ToString(data.AvailableFunction);
-                       machineNameLabel.Text = Convert.ToString(lnkButton.Text.Trim());
-                   }
-                   if (functionListLabel.Text.Trim() == string.Empty)
-                   {
-                       functionListLabel.Text = "No function available";
-                   }
-                   availableFunctiondiv.Visible=true;
-                  
-                   
-               }
+               vs.NotifyServer(clientAddressLabel.Text,"FindFunction",null);
+               Response.Redirect("FunctionList.aspx?ClientAddress="+clientAddressLabel.Text.Trim(), true);
+              
 
               
               

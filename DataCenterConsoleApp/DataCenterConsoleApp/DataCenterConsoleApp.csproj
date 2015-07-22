@@ -12,7 +12,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\PublishConsole\</PublishUrl>
+    <PublishUrl>C:\PubLishConsoleAppl_21July2015\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -23,7 +23,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationRevision>6</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -63,6 +63,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
@@ -86,11 +87,11 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="DataCenterConsoleApp_TemporaryKey.pfx" />
-    <None Include="Service References\DuplexEMachineService\service.wsdl" />
-    <None Include="Service References\DuplexEMachineService\service.xsd">
+    <None Include="Service References\DuplexEMachineService\service1.wsdl" />
+    <None Include="Service References\DuplexEMachineService\service2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\DuplexEMachineService\service1.xsd">
+    <None Include="Service References\DuplexEMachineService\service21.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

@@ -10,12 +10,7 @@
     <form id="form1" runat="server">
       
       <h2>Machine List</h2>
-        <div id="availableFunctiondiv" runat="server" visible="false" style="width:100%">
-
-            <asp:Label runat="server" ID="machineNameLabel" Font-Bold="true"></asp:Label>:-
-            <asp:Label runat="server" ID="functionListLabel" ></asp:Label>
-
-        </div>
+        
     <div>
     <asp:GridView ID="machineListGridView" runat="server" Width="100%" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" 
         BorderWidth="1px" CellPadding="3" OnRowCommand="machineListGridView_RowCommand">

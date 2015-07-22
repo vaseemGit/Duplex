@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DataCenterConsoleApp.DuplexEMachineService;
 using System.ServiceModel;
 using System.ComponentModel;
+using System.Management;
 namespace DataCenterConsoleApp
 {
     class Listener : IServiceCallback,IDisposable
@@ -13,16 +14,16 @@ namespace DataCenterConsoleApp
         ServiceClient proxy;
         public string msg=string.Empty;
         private ServiceClient _client;
-        
-        public void CallBackFunction(string str)
+
+        public void CallBackFunction(string functionType, string clientAddress, string functonName)
         {
             
             string s=string.Empty;
-            if (str == "Identity")
+            if (functionType == "Identity")
             {
                MachineIdentity();
             }
-            if (str == "GetFunction")
+            else  if (functionType == "GetFunction")
             {
                 List<string> FunctionList= getFunctions();
                 foreach (string fcn in FunctionList) // Loop through List with foreach.
@@ -31,8 +32,13 @@ namespace DataCenterConsoleApp
                 }
                 InstanceContext context = new InstanceContext(this);
                 proxy = new ServiceClient(context);
-                proxy.UpdateData(s.TrimStart(','), MachineIdentityName());
+                proxy.UpdateData(s.TrimStart(','), clientAddress);
             }
+            else if (functionType == "ExecuteFunction")
+            {
+                Console.WriteLine(functonName+" Command executed.");
+            }
+
          
             
         }
@@ -67,11 +73,28 @@ namespace DataCenterConsoleApp
         }
         public void MachineIdentity()
         {
-            string s=  Environment.ProcessorCount + "/" +
+            ManagementObjectCollection mbsList = null;
+            ManagementObjectSearcher mbs = new ManagementObjectSearcher("Select * From Win32_processor");
+            mbsList = mbs.Get();
+            string processorId = "";
+            foreach (ManagementObject mo in mbsList)
+            {
+                processorId = mo["ProcessorID"].ToString();
+            }
+
+            ManagementObjectSearcher mos = new ManagementObjectSearcher("SELECT * FROM Win32_BaseBoard");
+            ManagementObjectCollection moc = mos.Get();
+            string motherBoard = "";
+            foreach (ManagementObject mo in moc)
+            {
+                motherBoard = (string)mo["SerialNumber"];
+            }
+
+              string s=  Environment.ProcessorCount + "/" +
                 Environment.MachineName + "/" +
                 Environment.UserDomainName + "\\" +
                 Environment.UserName + "/" +
-                Environment.GetLogicalDrives().Length;
+                Environment.GetLogicalDrives().Length +"/"+ processorId.Trim()+"/"+motherBoard.Trim();
             Guid clientGuid = Guid.NewGuid();
             InstanceContext context = new InstanceContext(this);
             proxy = new ServiceClient(context);
