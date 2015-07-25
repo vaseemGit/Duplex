@@ -1,0 +1,4 @@
+INFO  2015-07-23 20:11:26,171  5716ms _Default               ridView_RowCommand - Thread was being aborted.
+INFO  2015-07-23 20:11:37,081 16625ms _Default               ridView_RowCommand - Thread was being aborted.
+INFO  2015-07-23 20:11:40,159 19704ms _Default               ridView_RowCommand - Thread was being aborted.
+INFO  2015-07-23 20:27:52,081 659554ms Service                NotifyServer       - The inactivity timeout of (00:10:00) has been exceeded.

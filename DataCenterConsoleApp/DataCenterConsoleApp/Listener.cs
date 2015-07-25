@@ -7,17 +7,21 @@ using DataCenterConsoleApp.DuplexEMachineService;
 using System.ServiceModel;
 using System.ComponentModel;
 using System.Management;
+using log4net;
 namespace DataCenterConsoleApp
 {
     class Listener : IServiceCallback,IDisposable
     {
         ServiceClient proxy;
+        Program p = new Program();
         public string msg=string.Empty;
         private ServiceClient _client;
-
+       
         public void CallBackFunction(string functionType, string clientAddress, string functonName)
         {
-            
+            try
+            {
+
             string s=string.Empty;
             if (functionType == "Identity")
             {
@@ -39,7 +43,12 @@ namespace DataCenterConsoleApp
                 Console.WriteLine(functonName+" Command executed.");
             }
 
-         
+            }
+            catch (Exception ex)
+            {
+
+                Program.logger.Error(ex.Message.ToString());
+            }
             
         }
     
@@ -53,16 +62,18 @@ namespace DataCenterConsoleApp
             }
             catch (EndpointNotFoundException ex)
             {
-
+                Program.logger.Error(ex.Message.ToString());
                 Console.WriteLine("Error:" + ex.Message.ToString());
             }
             catch (FaultException ex)
             {
                 Console.WriteLine("Error:" + ex.Message.ToString());
+                Program.logger.Error(ex.Message.ToString());
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error:" + ex.Message.ToString());
+                Program.logger.Error(ex.Message.ToString());
             }
 
         }

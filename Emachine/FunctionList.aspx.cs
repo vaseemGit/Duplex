@@ -4,40 +4,49 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using log4net;
 
 public partial class FunctionList : System.Web.UI.Page
 {
+    private static ILog logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
     protected void Page_Load(object sender, EventArgs e)
     {
         if(!IsPostBack)
          {
-
-             if (GetQueryString("ClientAddress") != null && GetQueryString("ClientAddress") != string.Empty)
+             try
              {
-                 string ClientAddress= GetQueryString("ClientAddress").Trim();
-                 using (DuplexApp_dbEntities entities = new DuplexApp_dbEntities())
+              if (GetQueryString("ClientAddress") != null && GetQueryString("ClientAddress") != string.Empty)
                  {
-                     var data = entities.MachineDetails.Where(m => m.ClientAddress == ClientAddress.Trim()).FirstOrDefault();
-                     if (data != null)
+                     string ClientAddress= GetQueryString("ClientAddress").Trim();
+                     using (DuplexApp_dbEntities entities = new DuplexApp_dbEntities())
                      {
-                         string functionName = Convert.ToString(data.AvailableFunction);
-                         machineNameLabel.Text = Convert.ToString(data.MachineKey);
-                         if (!string.IsNullOrEmpty(functionName))
+                         var data = entities.MachineDetails.Where(m => m.ClientAddress == ClientAddress.Trim()).FirstOrDefault();
+                         if (data != null)
                          {
-                             string[] functionArray = functionName.Split(',');
-                             functionListGridView.DataSource = functionArray.Select(a => new { data = a });
-                             functionListGridView.DataBind();
+                             string functionName = Convert.ToString(data.AvailableFunction);
+                             machineNameLabel.Text = Convert.ToString(data.MachineKey);
+                             if (!string.IsNullOrEmpty(functionName))
+                             {
+                                 string[] functionArray = functionName.Split(',');
+                                 functionListGridView.DataSource = functionArray.Select(a => new { data = a });
+                                 functionListGridView.DataBind();
+                             }
+                             else
+                             {
+                                 functionListGridView.DataSource = null;
+                                 functionListGridView.DataBind();
+                             }
                          }
-                         else
-                         {
-                             functionListGridView.DataSource = null;
-                             functionListGridView.DataBind();
-                         }
-                     }
 
                 
+                     }
                  }
              }
+             catch (Exception ex)
+             {
+                 logger.Info(ex.Message.ToString());
+             }
+
 
          }
 
@@ -56,6 +65,9 @@ public partial class FunctionList : System.Web.UI.Page
     #endregion
     protected void functionNameButton_Click(object sender, EventArgs e)
     {
+        try
+        {
+
         Button functonNamebutton = (Button)sender;
         Service vs = new Service();
         vs.NotifyServer(GetQueryString("ClientAddress").Trim(), "ExecuteFunction", functonNamebutton.Text);
@@ -67,5 +79,12 @@ public partial class FunctionList : System.Web.UI.Page
         {
             Page.ClientScript.RegisterStartupScript(GetType(), "msgbox", "alert('"+functonNamebutton.Text.Trim()+" command executed on client machine.');", true);
         }
+        }catch (Exception ex)
+        {
+            logger.Info(ex.Message.ToString());
+        }
+
+                
+
     }
 }

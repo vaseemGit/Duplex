@@ -6,15 +6,28 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.ServiceModel;
+using log4net;
+
 public partial class _Default : System.Web.UI.Page
 {
- 
+    private static ILog logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
     #region  Mehod Page_Load
     protected void Page_Load(object sender, EventArgs e)
     {
-        using (DuplexApp_dbEntities entities = new DuplexApp_dbEntities())
+        if (!IsPostBack)
         {
-            LoadMachineData();
+            using (DuplexApp_dbEntities entities = new DuplexApp_dbEntities())
+            {
+                try
+                {
+                    LoadMachineData();
+                }
+                catch (Exception ex)
+                {
+                    logger.Info(ex.Message.ToString());
+                }
+
+            }
         }
     }
     #endregion
@@ -42,7 +55,7 @@ public partial class _Default : System.Web.UI.Page
        }                                                                                                                                                                                                                                         
        catch(Exception ex)
        {
-     
+           logger.Info(ex.Message.ToString());
        }
 
    }
@@ -69,7 +82,7 @@ public partial class _Default : System.Web.UI.Page
                
                Service vs = new Service();
                vs.NotifyServer(clientAddressLabel.Text,"FindFunction",null);
-               Response.Redirect("FunctionList.aspx?ClientAddress="+clientAddressLabel.Text.Trim(), true);
+               Response.Redirect("FunctionList.aspx?ClientAddress="+clientAddressLabel.Text.Trim(), false);
               
 
               
@@ -78,7 +91,7 @@ public partial class _Default : System.Web.UI.Page
        }
        catch (Exception ex)
        {
-            
+           logger.Info(ex.Message.ToString());
        }
 
 

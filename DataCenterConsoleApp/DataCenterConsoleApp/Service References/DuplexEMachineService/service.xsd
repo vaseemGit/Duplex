@@ -16,6 +16,8 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="clientAddress" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="functionType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="functionName" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -23,14 +25,16 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="functionList" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="machineKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ClientAddress" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CallBackFunction">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="str" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="functionType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="clientAddress" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="functionName" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

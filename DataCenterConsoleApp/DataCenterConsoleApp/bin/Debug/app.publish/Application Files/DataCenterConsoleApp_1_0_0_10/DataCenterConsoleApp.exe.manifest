@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="DataCenterConsoleApp.exe" version="1.0.0.10" publicKeyToken="a3d6024b5e2e85dd" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="DataCenterConsoleApp" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="DataCenterConsoleApp.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DataCenterConsoleApp.exe" size="11264">
+      <assemblyIdentity name="DataCenterConsoleApp" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>wyfKdv3icy9t0I8RTQezEIAX/wykFyGVcjh7HeHRKYc=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="log4net.dll" size="301056">
+      <assemblyIdentity name="log4net" version="1.2.13.0" publicKeyToken="669E0DDF0BB1AA2A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>zm7k/ceDpb+QXyQBeKyW6ut+3iL/4GoGuhec0aBEK9M=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="DataCenterConsoleApp.exe.config" size="1567">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>1hSjyT0HsJPVUAKsZbalAqvBG3etASTnUvGWG7/VHzA=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=user-PC\user" issuerKeyHash="58df3b2dd93c3275f908d146c55316fd975266a8" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>IViglCjrGNlTCy5WyJG1bWQUDAlELUY7uTiSj36UITI=</DigestValue></Reference></SignedInfo><SignatureValue>wlkWclGDdkFgXP9BL4doY2aaAF7k6JJwU5LsgjfCeYCfGDAqTH382qnE6fQyzQqO/hKmWK3NodiX27o2et5tVaFUAxpFtgypkGEDWxVDkZEAUQR+5dHyQ/vO3BrenENsEHr2n5gCV9WpPBShTsD6Kz+kEP0/XZoo+Ms9PaswQWY=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>zUyu3axcPJYaEdNCsZm4BG4OaGjVTHylEnQQtnhthEmg/kDMVR28A7Jqj9bJbsIjDEUVQ65ykSkcl3N9T0wAGWde4OrJ/Wzy3ncTbWtfhvOB5XgmPCc8LgW+SMcjM4+7ciGO1xG8ftWHDGc94GQYaw5XVF2PwGHFTnTvhJIYp1k=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="3221947e8f9238b93b462d44090c14646db591c8562e0b53d918eb2894a05821" Description="" Url=""><as:assemblyIdentity name="DataCenterConsoleApp.exe" version="1.0.0.10" publicKeyToken="a3d6024b5e2e85dd" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=user-PC\user</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>h5824/Z/BTVe0gGc1dP40Vw/H/5HfshV3LwYL4lrja0=</DigestValue></Reference></SignedInfo><SignatureValue>W4NqFlwdHGK14aoRJ3a7JhH4ryOWxoYhqLgqH00UKV3ufkZGTgn4td06IvvKZbi1k7BSNFizyukVhc2bz+plDSit8Z7HRmkPFtVxw8WiyuOV3Z1bhIhhCv55GfRkdRdvPBHV4qX7WIV5TUge59y7iIhCnq0dEYz2wQqoNk9NvA4=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>zUyu3axcPJYaEdNCsZm4BG4OaGjVTHylEnQQtnhthEmg/kDMVR28A7Jqj9bJbsIjDEUVQ65ykSkcl3N9T0wAGWde4OrJ/Wzy3ncTbWtfhvOB5XgmPCc8LgW+SMcjM4+7ciGO1xG8ftWHDGc94GQYaw5XVF2PwGHFTnTvhJIYp1k=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIByTCCATKgAwIBAgIQYJxDKxsmE7JJbVKgE5j85TANBgkqhkiG9w0BAQsFADAjMSEwHwYDVQQDHhgAdQBzAGUAcgAtAFAAQwBcAHUAcwBlAHIwHhcNMTUwNzA5MTExOTI4WhcNMTYwNzA4MTcxOTI4WjAjMSEwHwYDVQQDHhgAdQBzAGUAcgAtAFAAQwBcAHUAcwBlAHIwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAM1Mrt2sXDyWGhHTQrGZuARuDmho1Ux8pRJ0ELZ4bYRJoP5AzFUdvAOyao/WyW7CIwxFFUOucpEpHJdzfU9MABlnXuDqyf1s8t53E21rX4bzgeV4JjwnPC4FvkjHIzOPu3IhjtcRvH7VhwxnPeBkGGsOV1Rdj8BhxU5074SSGKdZAgMBAAEwDQYJKoZIhvcNAQELBQADgYEAD0CSPUHDiqdntfUL920/DbFf1eN7Kf+vBkzbrkHg9zxR64bAvTtSIb22CT3xWPvilrZaEgYBmtQXRc8JdN9sBdBGw3sHMmB4uap9jzN5UwgQD9bxmlOPWE3UuDf13vNvCBHz9yZEpbeDlVcQQdwvsluGPKxDsAi19T2XofReK58=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

@@ -1,0 +1,12 @@
+{INFO}{2015-07-24 11:43:31,557}{MM/dd HH:mm:ss} – Begin processing.
+{ERROR}{2015-07-24 11:43:32,747}{MM/dd HH:mm:ss} – System.DivideByZeroException: Attempted to divide by zero.
+   at DataCenterConsoleApp.Program.Main(String[] args) in e:\duplexFinal\DataCenterConsoleApp\DataCenterConsoleApp\Program.cs:line 23
+{INFO}{2015-07-24 11:43:32,757}{MM/dd HH:mm:ss} – Attempted to divide by zero.
+{INFO}{2015-07-24 11:57:20,719}{MM/dd HH:mm:ss} – Begin processing.
+{ERROR}{2015-07-24 11:57:21,908}{MM/dd HH:mm:ss} – System.DivideByZeroException: Attempted to divide by zero.
+   at DataCenterConsoleApp.Program.Main(String[] args) in e:\duplexFinal\DataCenterConsoleApp\DataCenterConsoleApp\Program.cs:line 23
+{INFO}{2015-07-24 11:57:21,911}{MM/dd HH:mm:ss} – Attempted to divide by zero.
+{INFO}{2015-07-24 12:01:37,965}{MM/dd HH:mm:ss} – Begin processing.
+{ERROR}{2015-07-24 12:01:40,254}{MM/dd HH:mm:ss} – System.DivideByZeroException: Attempted to divide by zero.
+   at DataCenterConsoleApp.Program.Main(String[] args) in e:\duplexFinal\DataCenterConsoleApp\DataCenterConsoleApp\Program.cs:line 23
+{INFO}{2015-07-24 12:01:40,261}{MM/dd HH:mm:ss} – Attempted to divide by zero.

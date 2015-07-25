@@ -19,12 +19,12 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://119.9.30.37/service.svc/mex" Protocol="mex" SourceId="1" />
+    <MetadataSource Address="http://localhost:5428/Emachine/service.svc/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="fbfc4bc3-aed9-4a13-a50c-4fef243dec6b" SourceId="1" SourceUrl="http://119.9.30.37/service.svc/mex" />
-    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="0fbeaf04-d1ff-4299-865f-9aa06230a910" SourceId="1" SourceUrl="http://119.9.30.37/service.svc/mex" />
-    <MetadataFile FileName="service21.xsd" MetadataType="Schema" ID="c19ddcd4-390a-40db-aa75-9a1765174be1" SourceId="1" SourceUrl="http://119.9.30.37/service.svc/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="bbe119ca-e543-4c34-a1b8-cc4749c15696" SourceId="1" SourceUrl="http://localhost:5428/Emachine/service.svc/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="fcf40ee0-1455-4c83-84b8-c275604ae5b5" SourceId="1" SourceUrl="http://localhost:5428/Emachine/service.svc/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="29808117-a68b-4184-bea2-1abbdf20fce1" SourceId="1" SourceUrl="http://localhost:5428/Emachine/service.svc/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

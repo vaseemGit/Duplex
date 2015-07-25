@@ -28,12 +28,14 @@ C:\Users\HASHIR\Desktop\emachineBackUpProject\DataCenterConsoleApp\DataCenterCon
 C:\Users\HASHIR\Desktop\emachineBackUpProject\DataCenterConsoleApp\DataCenterConsoleApp\obj\Debug\DataCenterConsoleApp.exe.manifest
 C:\Users\HASHIR\Desktop\emachineBackUpProject\DataCenterConsoleApp\DataCenterConsoleApp\obj\Debug\DataCenterConsoleApp.application
 E:\duplexFinal\DataCenterConsoleApp\DataCenterConsoleApp\bin\Debug\DataCenterConsoleApp.exe.config
-E:\duplexFinal\DataCenterConsoleApp\DataCenterConsoleApp\obj\Debug\DataCenterConsoleApp.exe
-E:\duplexFinal\DataCenterConsoleApp\DataCenterConsoleApp\obj\Debug\DataCenterConsoleApp.pdb
 E:\duplexFinal\DataCenterConsoleApp\DataCenterConsoleApp\bin\Debug\DataCenterConsoleApp.exe.manifest
 E:\duplexFinal\DataCenterConsoleApp\DataCenterConsoleApp\bin\Debug\DataCenterConsoleApp.application
 E:\duplexFinal\DataCenterConsoleApp\DataCenterConsoleApp\bin\Debug\DataCenterConsoleApp.exe
 E:\duplexFinal\DataCenterConsoleApp\DataCenterConsoleApp\bin\Debug\DataCenterConsoleApp.pdb
+E:\duplexFinal\DataCenterConsoleApp\DataCenterConsoleApp\bin\Debug\log4net.dll
+E:\duplexFinal\DataCenterConsoleApp\DataCenterConsoleApp\bin\Debug\log4net.xml
 E:\duplexFinal\DataCenterConsoleApp\DataCenterConsoleApp\obj\Debug\DataCenterConsoleApp.exe.manifest
 E:\duplexFinal\DataCenterConsoleApp\DataCenterConsoleApp\obj\Debug\DataCenterConsoleApp.application
+E:\duplexFinal\DataCenterConsoleApp\DataCenterConsoleApp\obj\Debug\DataCenterConsoleApp.exe
+E:\duplexFinal\DataCenterConsoleApp\DataCenterConsoleApp\obj\Debug\DataCenterConsoleApp.pdb
 E:\duplexFinal\DataCenterConsoleApp\DataCenterConsoleApp\obj\Debug\DataCenterConsoleApp.csprojResolveAssemblyReference.cache
